@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaBoletosAutobus", "SistemaBoletosAutobus\SistemaBoletosAutobus.csproj", "{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaBoletosAutobus.Tests", "SistemaBoletosAutobus.Tests\SistemaBoletosAutobus.Tests.csproj", "{4D68EDD2-EF87-4919-A1B1-0B84E4CB37A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D68EDD2-EF87-4919-A1B1-0B84E4CB37A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D68EDD2-EF87-4919-A1B1-0B84E4CB37A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D68EDD2-EF87-4919-A1B1-0B84E4CB37A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D68EDD2-EF87-4919-A1B1-0B84E4CB37A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

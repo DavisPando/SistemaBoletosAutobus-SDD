@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>9.0.30729</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{4D68EDD2-EF87-4919-A1B1-0B84E4CB37A5}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace>SistemaBoletosAutobus.Tests</RootNamespace>
+	<AssemblyName>SistemaBoletosAutobus.Tests</AssemblyName>
+	<TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	<TargetFrameworkProfile />
+	<TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="MSTest.TestAdapter">
+	  <HintPath>..\packages\MSTest.TestAdapter.4.5.1\buildTransitive\net462\MSTest.TestAdapter.dll</HintPath>
+	</Reference>
+	<Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
+	  <HintPath>..\packages\MSTest.TestFramework.4.5.1\lib\net462\MSTest.TestFramework.dll</HintPath>
+	</Reference>
+	<Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions">
+	  <HintPath>..\packages\MSTest.TestFramework.4.5.1\lib\net462\MSTest.TestFramework.Extensions.dll</HintPath>
+	</Reference>
+	<Reference Include="System" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Data" />
+	<Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+	<ProjectReference Include="..\SistemaBoletosAutobus\SistemaBoletosAutobus.csproj">
+	  <Project>{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}</Project>
+	  <Name>SistemaBoletosAutobus</Name>
+	</ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+	<Compile Include="Controladores\UserStory1Tests.cs" />
+	<Compile Include="Controladores\UserStory2Tests.cs" />
+	<Compile Include="Controladores\UserStory3Tests.cs" />
+	<None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
