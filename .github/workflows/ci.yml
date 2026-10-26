@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore SistemaBoletosAutobus.sln -NonInteractive
+
+      - name: Build solution
+        run: msbuild SistemaBoletosAutobus.sln /m /p:Configuration=Release
+
+      - name: Run tests
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          if (-not (Test-Path $vswhere)) {
+            throw "No se encontró vswhere.exe en la instalación de Visual Studio."
+          }
+
+          $vsRoot = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.ManagedDesktop.Core -property installationPath
+          if (-not $vsRoot) {
+            throw "No se encontró la instalación de Visual Studio con soporte para MSBuild y VSTest."
+          }
+
+          $vstest = Join-Path $vsRoot "Common7\IDE\CommonExtensions\Microsoft\TestPlatform\vstest.console.exe"
+          if (-not (Test-Path $vstest)) {
+            throw "No se encontró vstest.console.exe."
+          }
+
+          & $vstest .\SistemaBoletosAutobus.Tests\bin\Release\SistemaBoletosAutobus.Tests.dll /Settings:SistemaBoletosAutobus.runsettings /Logger:trx /ResultsDirectory:TestResults
+      - name: Publish test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults
+          if-no-files-found: warn

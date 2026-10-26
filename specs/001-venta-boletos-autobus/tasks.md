@@ -10,9 +10,9 @@
 
 **Purpose**: Initialize the Windows Forms solution and test project infrastructure.
 
-- [ ] T001 Create the Visual Studio solution folders and repository structure in `SistemaBoletosAutobus/`, `SistemaBoletosAutobus.Tests/`, and `docs/`.
-- [ ] T002 Initialize the .NET Framework 4.8 WinForms project and MSTest project configuration in `SistemaBoletosAutobus/SistemaBoletosAutobus.csproj`, `SistemaBoletosAutobus.Tests/SistemaBoletosAutobus.Tests.csproj`, and `SistemaBoletosAutobus/packages.config`.
-- [ ] T003 [P] Configure NuGet dependencies, CI workflow, and test runner settings in `SistemaBoletosAutobus/packages.config`, `SistemaBoletosAutobus.Tests/packages.config`, `.github/workflows/ci.yml`, and `SistemaBoletosAutobus.runsettings`.
+- [X] T001 Create the Visual Studio solution folders and repository structure in `SistemaBoletosAutobus/`, `SistemaBoletosAutobus.Tests/`, and `docs/`.
+- [X] T002 Initialize the .NET Framework 4.8 WinForms project and MSTest project configuration in `SistemaBoletosAutobus/SistemaBoletosAutobus.csproj`, `SistemaBoletosAutobus.Tests/SistemaBoletosAutobus.Tests.csproj`, and `SistemaBoletosAutobus/packages.config`.
+- [X] T003 [P] Configure NuGet dependencies, CI workflow, and test runner settings in `SistemaBoletosAutobus/packages.config`, `SistemaBoletosAutobus.Tests/packages.config`, `.github/workflows/ci.yml`, and `SistemaBoletosAutobus.runsettings`.
 
 ---
 
@@ -22,9 +22,9 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T004 Create the entity classes and enums for `Usuario`, `Pasajero`, `Bus`, `Ruta`, `Viaje`, and `Boleto` in `SistemaBoletosAutobus/Entidades/`.
-- [ ] T005 Implement the shared in-memory seed data and static controller foundations for authentication, validation, ticketing, and reporting in `SistemaBoletosAutobus/Controladores/`.
-- [ ] T006 [P] Add the PDF ticket utility and shared Spanish validation/error formatting in `SistemaBoletosAutobus/Utilidades/` and `SistemaBoletosAutobus/Formularios/`.
+- [X] T004 Create the entity classes and enums for `Usuario`, `Pasajero`, `Bus`, `Ruta`, `Viaje`, and `Boleto` in `SistemaBoletosAutobus/Entidades/`.
+- [X] T005 Implement the shared in-memory seed data and static controller foundations for authentication, validation, ticketing, and reporting in `SistemaBoletosAutobus/Controladores/`.
+- [X] T006 [P] Add the PDF ticket utility and shared Spanish validation/error formatting in `SistemaBoletosAutobus/Utilidades/` and `SistemaBoletosAutobus/Formularios/`.
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel.
 
