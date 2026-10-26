@@ -60,14 +60,14 @@
 
 ### Tests for User Story 2
 
-- [ ] T013 [P] [US2] Create MSTest coverage for Ecuadorian ID validation, passenger CRUD, pricing discounts, seat duplication rejection, and PDF generation in `SistemaBoletosAutobus.Tests/Controladores/` and `SistemaBoletosAutobus.Tests/Utilidades/`.
+- [X] T013 [P] [US2] Create MSTest coverage for Ecuadorian ID validation, passenger CRUD, pricing discounts, seat duplication rejection, and PDF generation in `SistemaBoletosAutobus.Tests/Controladores/` and `SistemaBoletosAutobus.Tests/Utilidades/`.
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Implement passenger creation, lookup by cédula, editing, and deletion rules in `SistemaBoletosAutobus/Controladores/PasajeroController.cs`.
-- [ ] T015 [P] [US2] Implement sale validation and discount logic for passenger age >= 65 or disability with exact 50% pricing and seat conflict prevention in `SistemaBoletosAutobus/Controladores/BoletoController.cs`.
-- [ ] T016 [P] [US2] Implement PDF ticket generation and the cashier sale flow in `SistemaBoletosAutobus/Utilidades/TicketPdf.cs` and `SistemaBoletosAutobus/Formularios/`.
-- [ ] T017 [US2] Build the Punto de Venta, Pasajeros, and ticket output screens for the cashier workflow in `SistemaBoletosAutobus/Formularios/`.
+- [X] T014 [US2] Implement passenger creation, lookup by cédula, editing, and deletion rules in `SistemaBoletosAutobus/Controladores/PasajeroController.cs`.
+- [X] T015 [P] [US2] Implement sale validation and discount logic for passenger age >= 65 or disability with exact 50% pricing and seat conflict prevention in `SistemaBoletosAutobus/Controladores/BoletoController.cs`.
+- [X] T016 [P] [US2] Implement PDF ticket generation and the cashier sale flow in `SistemaBoletosAutobus/Utilidades/TicketPdf.cs` and `SistemaBoletosAutobus/Formularios/`.
+- [X] T017 [US2] Build the Punto de Venta, Pasajeros, and ticket output screens for the cashier workflow in `SistemaBoletosAutobus/Formularios/`.
 
 **Checkpoint**: At this point, User Story 2 should work independently of the admin workflow.
 

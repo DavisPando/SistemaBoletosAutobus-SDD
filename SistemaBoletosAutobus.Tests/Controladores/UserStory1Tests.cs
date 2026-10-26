@@ -1,7 +1,9 @@
 using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SistemaBoletosAutobus.Controladores;
 using SistemaBoletosAutobus.Entidades;
+using SistemaBoletosAutobus.Utilidades;
 
 namespace SistemaBoletosAutobus.Tests.Controladores
 {
@@ -12,6 +14,7 @@ namespace SistemaBoletosAutobus.Tests.Controladores
         public void Setup()
         {
             UsuarioController.Reset();
+            PasajeroController.Reset();
             BusController.Reset();
             RutaController.Reset();
             ViajeController.Reset();
@@ -106,5 +109,6 @@ namespace SistemaBoletosAutobus.Tests.Controladores
             Assert.AreEqual("Guayaquil", resultado[0].Destino);
             Assert.AreEqual(35m, resultado[0].Total);
         }
+
     }
 }

@@ -24,6 +24,23 @@ namespace SistemaBoletosAutobus.Controladores
             Boletos.Clear();
         }
 
+        public static decimal CalcularPrecio(Pasajero pasajero, decimal precioBase)
+        {
+            if (pasajero == null)
+            {
+                return precioBase;
+            }
+
+            var edad = PasajeroController.ObtenerEdadEnFecha(pasajero.FechaNacimiento, DateTime.Today);
+            var esElegible = edad >= 65 || pasajero.TieneDiscapacidad;
+            if (esElegible)
+            {
+                return precioBase * 0.5m;
+            }
+
+            return precioBase;
+        }
+
         public static bool TieneAsientoDisponible(int idViaje, int numeroAsiento)
         {
             return !Boletos.Any(b => b.IdViaje == idViaje && b.NumeroAsiento == numeroAsiento && b.Estado == EstadoBoleto.Vendido);
@@ -36,7 +53,41 @@ namespace SistemaBoletosAutobus.Controladores
                 return false;
             }
 
+            var viaje = ViajeController.Viajes.FirstOrDefault(v => v.IdViaje == boleto.IdViaje);
+            if (viaje == null)
+            {
+                return false;
+            }
+
+            var pasajero = PasajeroController.Pasajeros.FirstOrDefault(p => p.IdPasajero == boleto.IdPasajero);
+            if (pasajero == null)
+            {
+                return false;
+            }
+
+            var bus = BusController.Buses.FirstOrDefault(b => b.IdBus == viaje.IdBus);
+            if (bus == null)
+            {
+                return false;
+            }
+
+            if (boleto.NumeroAsiento <= 0 || boleto.NumeroAsiento > bus.Capacidad)
+            {
+                return false;
+            }
+
             if (!TieneAsientoDisponible(boleto.IdViaje, boleto.NumeroAsiento))
+            {
+                return false;
+            }
+
+            if (viaje.Estado != EstadoViaje.Programado || viaje.FechaHoraSalida <= DateTime.Now)
+            {
+                return false;
+            }
+
+            boleto.PrecioPagado = CalcularPrecio(pasajero, RutaController.Rutas.FirstOrDefault(r => r.IdRuta == viaje.IdRuta)?.PrecioBase ?? 0m);
+            if (boleto.PrecioPagado <= 0m)
             {
                 return false;
             }
