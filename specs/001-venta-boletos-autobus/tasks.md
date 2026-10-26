@@ -97,9 +97,9 @@
 
 **Purpose**: Final validation, usability, and operational hardening across the entire solution.
 
-- [ ] T022 [P] Run the acceptance-validation flow from `quickstart.md` and confirm the full WinForms workflow, login constraints, business-rule scenarios, and PDF generation all pass in `SistemaBoletosAutobus/` and `SistemaBoletosAutobus.Tests/`.
-- [ ] T023 [P] Clean up code quality, Spanish messaging, and documentation in `README.md`, `docs/`, and the feature files under `specs/001-venta-boletos-autobus/`.
-- [ ] T024 Finalize CI verification, ensure zero-test discovery is treated as a failure, and confirm all reports and performance thresholds are satisfied in `.github/workflows/ci.yml`, `SistemaBoletosAutobus.runsettings`, and the test output directory.
+- [X] T022 [P] Run the acceptance-validation flow from `quickstart.md` and confirm the full WinForms workflow, login constraints, business-rule scenarios, and PDF generation all pass in `SistemaBoletosAutobus/` and `SistemaBoletosAutobus.Tests/`.
+- [X] T023 [P] Clean up code quality, Spanish messaging, and documentation in `README.md`, `docs/`, and the feature files under `specs/001-venta-boletos-autobus/`.
+- [X] T024 Finalize CI verification, ensure zero-test discovery is treated as a failure, and confirm all reports and performance thresholds are satisfied in `.github/workflows/ci.yml`, `SistemaBoletosAutobus.runsettings`, and the test output directory.
 
 ---
 
