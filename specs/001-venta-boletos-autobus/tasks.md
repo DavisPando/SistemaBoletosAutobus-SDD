@@ -81,13 +81,13 @@
 
 ### Tests for User Story 3
 
-- [ ] T018 [P] [US3] Create MSTest coverage for cancellation reasons, seat release after cancellation, and daily cash totals by cashier in `SistemaBoletosAutobus.Tests/Controladores/`.
+- [X] T018 [P] [US3] Create MSTest coverage for cancellation reasons, seat release after cancellation, and daily cash totals by cashier in `SistemaBoletosAutobus.Tests/Controladores/`.
 
 ### Implementation for User Story 3
 
-- [ ] T019 [US3] Implement boleto cancellation, reason validation, and seat release logic in `SistemaBoletosAutobus/Controladores/BoletoController.cs`.
-- [ ] T020 [US3] Implement daily cash totaling and cashier-scoped totals in `SistemaBoletosAutobus/Controladores/CajaController.cs`.
-- [ ] T021 [US3] Build the cancellation and Mi Caja interfaces in `SistemaBoletosAutobus/Formularios/`.
+- [X] T019 [US3] Implement boleto cancellation, reason validation, and seat release logic in `SistemaBoletosAutobus/Controladores/BoletoController.cs`.
+- [X] T020 [US3] Implement daily cash totaling and cashier-scoped totals in `SistemaBoletosAutobus/Controladores/CajaController.cs`.
+- [X] T021 [US3] Build the cancellation and Mi Caja interfaces in `SistemaBoletosAutobus/Formularios/`.
 
 **Checkpoint**: At this point, the day-end and refund/cancellation workflow is independently testable.
 

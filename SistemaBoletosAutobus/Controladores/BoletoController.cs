@@ -65,6 +65,12 @@ namespace SistemaBoletosAutobus.Controladores
                 return false;
             }
 
+            var cajero = UsuarioController.Usuarios.FirstOrDefault(u => u.IdUsuario == boleto.IdCajero && u.Activo && u.Rol == RolUsuario.Cajero);
+            if (cajero == null)
+            {
+                return false;
+            }
+
             var bus = BusController.Buses.FirstOrDefault(b => b.IdBus == viaje.IdBus);
             if (bus == null)
             {
@@ -96,6 +102,13 @@ namespace SistemaBoletosAutobus.Controladores
             boleto.FechaHoraVenta = DateTime.Now;
             Boletos.Add(boleto);
             return true;
+        }
+
+        public static List<Boleto> ObtenerBoletosPorCajeroYFecha(int idCajero, DateTime fecha)
+        {
+            return Boletos
+                .Where(b => b.IdCajero == idCajero && b.Estado == EstadoBoleto.Vendido && b.FechaHoraVenta.Date == fecha.Date)
+                .ToList();
         }
 
         public static bool AnularBoleto(int idBoleto, string motivo)

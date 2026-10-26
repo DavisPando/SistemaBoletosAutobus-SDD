@@ -58,6 +58,7 @@
   <ItemGroup>
 	<Compile Include="Controladores\UserStory1Tests.cs" />
 	<Compile Include="Controladores\UserStory2Tests.cs" />
+	<Compile Include="Controladores\UserStory3Tests.cs" />
 	<None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
