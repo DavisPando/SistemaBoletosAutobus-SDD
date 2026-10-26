@@ -37,7 +37,7 @@ namespace SistemaBoletosAutobus.Controladores
 
         public static bool RegistrarBus(Bus bus)
         {
-            if (bus == null || !EsPlacaValida(bus.Placa) || !EsCapacidadValida(bus.Capacidad))
+            if (bus == null || !EsPlacaValida(bus.Placa) || !EsCapacidadValida(bus.Capacidad) || string.IsNullOrWhiteSpace(bus.NumeroDisco))
             {
                 return false;
             }
@@ -49,6 +49,32 @@ namespace SistemaBoletosAutobus.Controladores
 
             Buses.Add(bus);
             return true;
+        }
+
+        public static bool ActualizarBus(int idBus, string numeroDisco, string placa, int capacidad)
+        {
+            var bus = Buses.FirstOrDefault(b => b.IdBus == idBus);
+            if (bus == null || string.IsNullOrWhiteSpace(numeroDisco) || !EsPlacaValida(placa) || !EsCapacidadValida(capacidad) ||
+                Buses.Any(b => b.IdBus != idBus && b.Placa.Trim().ToUpperInvariant() == placa.Trim().ToUpperInvariant()))
+            {
+                return false;
+            }
+
+            bus.NumeroDisco = numeroDisco.Trim();
+            bus.Placa = placa.Trim().ToUpperInvariant();
+            bus.Capacidad = capacidad;
+            return true;
+        }
+
+        public static bool EliminarBus(int idBus)
+        {
+            var bus = Buses.FirstOrDefault(b => b.IdBus == idBus);
+            if (bus == null || ViajeController.Viajes.Any(v => v.IdBus == idBus))
+            {
+                return false;
+            }
+
+            return Buses.Remove(bus);
         }
     }
 }

@@ -1,36 +1,86 @@
+using System;
 using System.Drawing;
 using System.Windows.Forms;
+using SistemaBoletosAutobus.Controladores;
+using SistemaBoletosAutobus.Entidades;
 
 namespace SistemaBoletosAutobus.Formularios
 {
-    public class MainForm : Form
+    public partial class MainForm : Form
     {
-        public MainForm()
+        private readonly Usuario _usuario;
+
+        public MainForm(Usuario usuario)
         {
-            Text = "Sistema de boletos de autobús";
-            StartPosition = FormStartPosition.CenterScreen;
-            Width = 860;
-            Height = 620;
-            BackColor = Color.White;
-
-            var titulo = new Label
+            if (usuario == null)
             {
-                AutoSize = true,
-                Font = new Font("Segoe UI", 16F, FontStyle.Bold),
-                Location = new Point(30, 30),
-                Text = "Configuración base inicial"
-            };
+                throw new ArgumentNullException("usuario");
+            }
 
-            var descripcion = new Label
+            _usuario = usuario;
+            InitializeComponent();
+            lblBienvenida.Text = "Sesión: " + usuario.NombreUsuario + " | Rol: " + usuario.Rol;
+            AgregarBoton("Venta", Venta_Click);
+            AgregarBoton("Pasajeros", Pasajeros_Click);
+            AgregarBoton("Anulación", Anulacion_Click);
+            AgregarBoton("Mi Caja", MiCaja_Click);
+
+            if (usuario.Rol == RolUsuario.Administrador)
             {
-                AutoSize = true,
-                MaximumSize = new Size(760, 0),
-                Location = new Point(30, 80),
-                Text = "La solución y la estructura base ya están creadas para continuar con la capa de entidades, controladores y utilidades del proyecto."
-            };
+                AgregarBoton("Usuarios", delegate { AbrirFormulario(new UsuarioForm()); });
+                AgregarBoton("Buses", delegate { AbrirFormulario(new BusForm()); });
+                AgregarBoton("Rutas", delegate { AbrirFormulario(new RutaForm()); });
+                AgregarBoton("Viajes", delegate { AbrirFormulario(new ViajeForm()); });
+                AgregarBoton("Reportes", delegate { AbrirFormulario(new ReporteForm()); });
+                AgregarBoton("Cerrar sesión", CerrarSesion_Click);
+            }
+        }
 
-            Controls.Add(titulo);
-            Controls.Add(descripcion);
+        private void AgregarBoton(string texto, EventHandler accion)
+        {
+            var boton = new Button
+            {
+                Text = texto,
+                Width = 220,
+                Height = 52,
+                Margin = new Padding(12),
+                Font = new Font("Segoe UI", 10F)
+            };
+            boton.Click += accion;
+            panelOpciones.Controls.Add(boton);
+        }
+
+        private void AbrirFormulario(Form formulario)
+        {
+            using (formulario)
+            {
+                formulario.ShowDialog(this);
+            }
+        }
+
+        private void Venta_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("La pantalla de venta no forma parte de esta versión de la interfaz.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Pasajeros_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("La pantalla de pasajeros no forma parte de esta versión de la interfaz.", "Pasajeros", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Anulacion_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmAnulacionBoleto());
+        }
+
+        private void MiCaja_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmMiCaja(_usuario.IdUsuario));
+        }
+
+        private void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

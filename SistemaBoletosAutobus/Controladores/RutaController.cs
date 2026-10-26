@@ -55,5 +55,32 @@ namespace SistemaBoletosAutobus.Controladores
             Rutas.Add(ruta);
             return true;
         }
+
+        public static bool ActualizarRuta(int idRuta, string ciudadOrigen, string ciudadDestino, decimal precioBase, System.TimeSpan duracion)
+        {
+            var ruta = Rutas.FirstOrDefault(r => r.IdRuta == idRuta);
+            var actualizada = new Ruta(idRuta, ciudadOrigen, ciudadDestino, precioBase, duracion);
+            if (ruta == null || !EsRutaValida(actualizada) || duracion <= System.TimeSpan.Zero)
+            {
+                return false;
+            }
+
+            ruta.CiudadOrigen = ciudadOrigen.Trim();
+            ruta.CiudadDestino = ciudadDestino.Trim();
+            ruta.PrecioBase = precioBase;
+            ruta.Duracion = duracion;
+            return true;
+        }
+
+        public static bool EliminarRuta(int idRuta)
+        {
+            var ruta = Rutas.FirstOrDefault(r => r.IdRuta == idRuta);
+            if (ruta == null || ViajeController.Viajes.Any(v => v.IdRuta == idRuta))
+            {
+                return false;
+            }
+
+            return Rutas.Remove(ruta);
+        }
     }
 }

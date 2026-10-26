@@ -38,7 +38,8 @@ namespace SistemaBoletosAutobus.Controladores
                 return false;
             }
 
-            if (viaje.IdBus <= 0 || viaje.IdRuta <= 0)
+            if (viaje.IdBus <= 0 || viaje.IdRuta <= 0 ||
+                !BusController.Buses.Any(b => b.IdBus == viaje.IdBus) || !RutaController.Rutas.Any(r => r.IdRuta == viaje.IdRuta))
             {
                 return false;
             }
@@ -55,6 +56,33 @@ namespace SistemaBoletosAutobus.Controladores
 
             Viajes.Add(viaje);
             return true;
+        }
+
+        public static bool ActualizarViaje(int idViaje, int idRuta, int idBus, DateTime fechaHoraSalida)
+        {
+            var viaje = Viajes.FirstOrDefault(v => v.IdViaje == idViaje);
+            if (viaje == null || viaje.Estado != EstadoViaje.Programado ||
+                !BusController.Buses.Any(b => b.IdBus == idBus) || !RutaController.Rutas.Any(r => r.IdRuta == idRuta) ||
+                Viajes.Any(v => v.IdViaje != idViaje && v.IdBus == idBus && v.FechaHoraSalida == fechaHoraSalida))
+            {
+                return false;
+            }
+
+            viaje.IdRuta = idRuta;
+            viaje.IdBus = idBus;
+            viaje.FechaHoraSalida = fechaHoraSalida;
+            return true;
+        }
+
+        public static bool EliminarViaje(int idViaje)
+        {
+            var viaje = Viajes.FirstOrDefault(v => v.IdViaje == idViaje);
+            if (viaje == null || BoletoController.Boletos.Any(b => b.IdViaje == idViaje))
+            {
+                return false;
+            }
+
+            return Viajes.Remove(viaje);
         }
     }
 }
