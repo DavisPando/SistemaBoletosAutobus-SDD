@@ -2,10 +2,11 @@ using System.Windows.Forms;
 
 namespace SistemaBoletosAutobus.Formularios
 {
-    public class ViajeForm : Form
+    public partial class ViajeForm : Form
     {
         public ViajeForm()
         {
+            InitializeComponent();
             Text = "Viajes";
             Width = 640;
             Height = 420;
