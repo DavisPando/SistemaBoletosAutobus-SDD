@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7D8D7B7-2F3C-44D2-81D0-00E1F45EBD93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistemaBoletosAutobus</RootNamespace>
+    <AssemblyName>SistemaBoletosAutobus</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartupObject>SistemaBoletosAutobus.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controladores\BoletoController.cs" />
+    <Compile Include="Controladores\BusController.cs" />
+    <Compile Include="Controladores\CajaController.cs" />
+    <Compile Include="Controladores\PasajeroController.cs" />
+    <Compile Include="Controladores\ReporteController.cs" />
+    <Compile Include="Controladores\RutaController.cs" />
+    <Compile Include="Controladores\UsuarioController.cs" />
+    <Compile Include="Controladores\ViajeController.cs" />
+    <Compile Include="Entidades\Boleto.cs" />
+    <Compile Include="Entidades\Bus.cs" />
+    <Compile Include="Entidades\EstadoBoleto.cs" />
+    <Compile Include="Entidades\EstadoViaje.cs" />
+    <Compile Include="Entidades\Pasajero.cs" />
+    <Compile Include="Entidades\RolUsuario.cs" />
+    <Compile Include="Entidades\Ruta.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Entidades\Viaje.cs" />
+    <Compile Include="Formularios\AdminLoginForm.cs" />
+    <Compile Include="Formularios\AdminLoginForm.Designer.cs" />
+    <Compile Include="Formularios\BusForm.cs" />
+    <Compile Include="Formularios\BusForm.Designer.cs" />
+    <Compile Include="Formularios\FrmAnulacionBoleto.cs" />
+    <Compile Include="Formularios\FrmBase.cs" />
+    <Compile Include="Formularios\FrmMiCaja.cs" />
+    <Compile Include="Formularios\MainForm.cs" />
+    <Compile Include="Formularios\MainForm.Designer.cs" />
+    <Compile Include="Formularios\PasajeroForm.cs" />
+    <Compile Include="Formularios\ReporteForm.cs" />
+    <Compile Include="Formularios\ReporteForm.Designer.cs" />
+    <Compile Include="Formularios\RutaForm.cs" />
+    <Compile Include="Formularios\RutaForm.Designer.cs" />
+    <Compile Include="Formularios\UsuarioForm.cs" />
+    <Compile Include="Formularios\UsuarioForm.Designer.cs" />
+    <Compile Include="Formularios\VentaForm.cs" />
+    <Compile Include="Formularios\ViajeForm.cs" />
+    <Compile Include="Formularios\ViajeForm.Designer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Utilidades\TicketPdf.cs" />
+    <Compile Include="Utilidades\ValidacionUtil.cs" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
