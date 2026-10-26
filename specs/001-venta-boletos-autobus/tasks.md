@@ -38,15 +38,15 @@
 
 ### Tests for User Story 1
 
-- [ ] T007 [P] [US1] Create MSTest coverage for authentication, user activation, bus validation, route validation, trip scheduling, and general reports in `SistemaBoletosAutobus.Tests/Controladores/`.
+- [X] T007 [P] [US1] Create MSTest coverage for authentication, user activation, bus validation, route validation, trip scheduling, and general reports in `SistemaBoletosAutobus.Tests/Controladores/`.
 
 ### Implementation for User Story 1
 
-- [ ] T008 [US1] Implement authentication, user CRUD, role restriction, and deactivation logic in `SistemaBoletosAutobus/Controladores/UsuarioController.cs`.
-- [ ] T009 [P] [US1] Implement bus registration and validation logic for a unique Ecuadorian plate `ABC-1234` and capacity between 10 and 60 seats inclusive in `SistemaBoletosAutobus/Controladores/BusController.cs`.
-- [ ] T010 [P] [US1] Implement route validation and trip scheduling logic for distinct origin/destination, base price > 0, and bus/date-time conflict rejection in `SistemaBoletosAutobus/Controladores/RutaController.cs` and `SistemaBoletosAutobus/Controladores/ViajeController.cs`.
-- [ ] T011 [US1] Implement general sales reporting aggregated by route and date in `SistemaBoletosAutobus/Controladores/ReporteController.cs`.
-- [ ] T012 [US1] Build the Administrator forms for login, user management, bus management, route management, trip scheduling, and reporting views in `SistemaBoletosAutobus/Formularios/`.
+- [X] T008 [US1] Implement authentication, user CRUD, role restriction, and deactivation logic in `SistemaBoletosAutobus/Controladores/UsuarioController.cs`.
+- [X] T009 [P] [US1] Implement bus registration and validation logic for a unique Ecuadorian plate `ABC-1234` and capacity between 10 and 60 seats inclusive in `SistemaBoletosAutobus/Controladores/BusController.cs`.
+- [X] T010 [P] [US1] Implement route validation and trip scheduling logic for distinct origin/destination, base price > 0, and bus/date-time conflict rejection in `SistemaBoletosAutobus/Controladores/RutaController.cs` and `SistemaBoletosAutobus/Controladores/ViajeController.cs`.
+- [X] T011 [US1] Implement general sales reporting aggregated by route and date in `SistemaBoletosAutobus/Controladores/ReporteController.cs`.
+- [X] T012 [US1] Build the Administrator forms for login, user management, bus management, route management, trip scheduling, and reporting views in `SistemaBoletosAutobus/Formularios/`.
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and independently testable.
 

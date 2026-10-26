@@ -13,6 +13,11 @@ namespace SistemaBoletosAutobus.Controladores
             InicializarDatos();
         }
 
+        public static void Reset()
+        {
+            InicializarDatos();
+        }
+
         public static void InicializarDatos()
         {
             Rutas.Clear();

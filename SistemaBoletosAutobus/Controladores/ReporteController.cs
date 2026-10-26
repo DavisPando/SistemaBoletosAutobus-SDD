@@ -7,6 +7,11 @@ namespace SistemaBoletosAutobus.Controladores
 {
     public static class ReporteController
     {
+        public static void Reset()
+        {
+            BoletoController.Reset();
+        }
+
         public static decimal ObtenerTotalCajaPorCajero(int idCajero, DateTime fecha)
         {
             return BoletoController.Boletos

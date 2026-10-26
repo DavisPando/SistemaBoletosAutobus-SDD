@@ -13,6 +13,11 @@ namespace SistemaBoletosAutobus.Controladores
             InicializarDatos();
         }
 
+        public static void Reset()
+        {
+            InicializarDatos();
+        }
+
         public static void InicializarDatos()
         {
             Buses.Clear();
@@ -37,7 +42,7 @@ namespace SistemaBoletosAutobus.Controladores
                 return false;
             }
 
-            if (Buses.Any(b => b.Placa == bus.Placa))
+            if (Buses.Any(b => b.Placa.Trim().ToUpperInvariant() == bus.Placa.Trim().ToUpperInvariant()))
             {
                 return false;
             }
