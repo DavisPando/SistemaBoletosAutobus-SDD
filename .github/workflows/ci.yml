@@ -1,14 +1,16 @@
-name: CI
+﻿name: CI
 
 on:
   push:
     branches:
       - main
-      - master
+      - develop
+      - '0*'
   pull_request:
     branches:
       - main
-      - master
+      - develop
+  workflow_dispatch:
 
 jobs:
   build-and-test:
@@ -34,21 +36,11 @@ jobs:
         shell: pwsh
         run: |
           $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-          if (-not (Test-Path $vswhere)) {
-            throw "No se encontró vswhere.exe en la instalación de Visual Studio."
-          }
-
-          $vsRoot = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.ManagedDesktop.Core -property installationPath
-          if (-not $vsRoot) {
-            throw "No se encontró la instalación de Visual Studio con soporte para MSBuild y VSTest."
-          }
-
+          $vsRoot = & $vswhere -latest -products * -property installationPath
           $vstest = Join-Path $vsRoot "Common7\IDE\CommonExtensions\Microsoft\TestPlatform\vstest.console.exe"
-          if (-not (Test-Path $vstest)) {
-            throw "No se encontró vstest.console.exe."
-          }
-
           & $vstest .\SistemaBoletosAutobus.Tests\bin\Release\SistemaBoletosAutobus.Tests.dll /Settings:SistemaBoletosAutobus.runsettings /Logger:trx /ResultsDirectory:TestResults
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Publish test results
         if: always()
         uses: actions/upload-artifact@v4
