@@ -32,8 +32,9 @@ namespace SistemaBoletosAutobus.Formularios
                 AgregarBoton("Rutas", delegate { AbrirFormulario(new RutaForm()); });
                 AgregarBoton("Viajes", delegate { AbrirFormulario(new ViajeForm()); });
                 AgregarBoton("Reportes", delegate { AbrirFormulario(new ReporteForm()); });
-                AgregarBoton("Cerrar sesión", CerrarSesion_Click);
             }
+
+            AgregarBoton("Cerrar sesión", CerrarSesion_Click);
         }
 
         private void AgregarBoton(string texto, EventHandler accion)
@@ -60,12 +61,12 @@ namespace SistemaBoletosAutobus.Formularios
 
         private void Venta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La pantalla de venta no forma parte de esta versión de la interfaz.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            AbrirFormulario(new VentaForm(_usuario.IdUsuario));
         }
 
         private void Pasajeros_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La pantalla de pasajeros no forma parte de esta versión de la interfaz.", "Pasajeros", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            AbrirFormulario(new PasajeroForm());
         }
 
         private void Anulacion_Click(object sender, EventArgs e)
