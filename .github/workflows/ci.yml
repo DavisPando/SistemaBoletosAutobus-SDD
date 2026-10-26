@@ -36,8 +36,8 @@ jobs:
         shell: pwsh
         run: |
           $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-          $vsRoot = & $vswhere -latest -products * -property installationPath
-          $vstest = Join-Path $vsRoot "Common7\IDE\CommonExtensions\Microsoft\TestPlatform\vstest.console.exe"
+          $vstest = & $vswhere -latest -products * -find "**\TestPlatform\vstest.console.exe" | Select-Object -First 1
+          Write-Host "VSTest: $vstest"
           & $vstest .\SistemaBoletosAutobus.Tests\bin\Release\SistemaBoletosAutobus.Tests.dll /Settings:SistemaBoletosAutobus.runsettings /Logger:trx /ResultsDirectory:TestResults
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
